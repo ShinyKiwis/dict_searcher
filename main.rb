@@ -2,6 +2,10 @@ require_relative "dict_searcher"
 
 dictSearcher = DictSearcher.new
 
-while true
-  dictSearcher.run
+begin
+  loop do
+    dictSearcher.run
+  end
+rescue Interrupt
+  puts "Goodby, happy learning!" 
 end

@@ -46,5 +46,4 @@ class WordScraper
     end
     ""
   end
-
 end
