@@ -1,8 +1,6 @@
 require 'httparty'
 require 'nokogiri'
 
-require 'pry'
-
 class WordScraper
   BASE_URL = 'https://www.oxfordlearnersdictionaries.com/definition/english/'
   def get_html(query_word) 
@@ -11,10 +9,7 @@ class WordScraper
   end
 
   def extract_info()
-    word_form = get_info('form')
-    word_level = get_info('level')
-    word_definition = get_info('definition')
-    word_examples = get_info('examples')
+    word_form, word_level, word_definition, word_examples = 4.times.map { |i| get_info(['form', 'level', 'definition', 'examples'][i]) }
     [word_form, word_level, word_definition, word_examples]
   end
 

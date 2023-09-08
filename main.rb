@@ -7,5 +7,5 @@ begin
     dictSearcher.run
   end
 rescue Interrupt
-  puts "Goodby, happy learning!" 
+  puts "Goodbye, happy learning!" 
 end
