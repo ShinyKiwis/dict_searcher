@@ -8,4 +8,8 @@ begin
   end
 rescue Interrupt
   puts "Goodbye, happy learning!" 
+rescue NoMethodError
+  puts "Not a valid word!(Enter to continue)"
+  gets
+  retry  
 end

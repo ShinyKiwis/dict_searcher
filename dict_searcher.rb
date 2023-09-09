@@ -2,8 +2,6 @@ require_relative 'word_scraper'
 require_relative 'utils'
 require_relative 'cache'
 
-require 'pry'
-
 class DictSearcher
   def initialize
     @scraper = WordScraper.new

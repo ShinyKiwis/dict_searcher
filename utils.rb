@@ -4,9 +4,7 @@ class Utils
   def color_puts(prompt, content, color)
     content_is_array = content.instance_of?(Array)
     output = !content_is_array && "#{prompt.colorize(:red)} #{content.colorize(color)}"
-    if color.nil?
-      puts output
-    elsif !content_is_array
+    if color.nil? || !content_is_array
       puts output
     else
       puts "Examples: ".colorize(:red)
