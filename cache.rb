@@ -1,5 +1,4 @@
 require 'yaml'
-require 'pry'
 
 class Cache
 
@@ -18,6 +17,12 @@ class Cache
     if !@word_list.nil?
       return @word_list[query_word]
     end
+  end
+
+  def get_keys()
+    return nil if @word_list.nil?
+    raw_keys = @word_list.keys 
+    return raw_keys.map{|key| key.to_s}
   end
 
   def load

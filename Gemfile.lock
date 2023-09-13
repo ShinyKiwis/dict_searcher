@@ -6,6 +6,7 @@ GEM
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
+    io-console (0.6.0)
     method_source (1.0.0)
     mini_mime (1.1.5)
     multi_xml (0.6.0)
@@ -15,6 +16,10 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     racc (1.7.1)
+    readline (0.0.3)
+      reline
+    reline (0.3.8)
+      io-console (~> 0.5)
 
 PLATFORMS
   x86_64-linux
@@ -24,6 +29,7 @@ DEPENDENCIES
   httparty
   nokogiri
   pry
+  readline
 
 RUBY VERSION
    ruby 3.0.0p0

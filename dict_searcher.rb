@@ -1,12 +1,23 @@
 require_relative 'word_scraper'
 require_relative 'utils'
 require_relative 'cache'
+require 'readline'
 
 class DictSearcher
   def initialize
     @scraper = WordScraper.new
     @utils = Utils.new
     @cache = Cache.new
+    Readline.completion_proc = proc do |text|
+      generate_auto_complete_suggestions(text)
+    end
+
+    Readline.completion_append_character = ' '
+  end
+
+  def generate_auto_complete_suggestions(text)
+    suggestions = @cache.get_keys().select { |word| word.start_with?(text)}
+    return suggestions.empty? ? nil: suggestions
   end
 
   def display(query_word, cache_result)
@@ -28,8 +39,8 @@ class DictSearcher
 
   def run
     @utils.clear
-    print "Input your word: "
-    query_word = gets.chomp
+    query_word = Readline.readline("Input your word: ")
+    return if query_word.empty?
 
     # Check if word list has already contain this words
     cache_result = @cache.get(query_word)
